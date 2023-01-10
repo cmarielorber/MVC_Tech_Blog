@@ -5,29 +5,30 @@ const withAuth = require('../utils/auth');
 //return all posts associated with the user
 router.get('/', withAuth, async (req, res) => {
     try {
-        const postData = await Post.findAll({
-            where: { user_id: req.session.user_id },
-            attributes: ['id', 'title', 'content', 'created_at'],
-            include: [
-                {
-                    model: Comment,
-                    attributes: [
-                        'id',
-                        'comment_text',
-                        'post_id',
-                        'user_id',
-                        'created_at',
-                    ],
-                    include: { model: User, attributes: ['username'] },
-                },
-                { model: User, attributes: ['username'] },
-            ],
-        });
+        // const postData = await Post.findAll({
+        //     where: { user_id: req.session.user_id },
+        //     attributes: ['id', 'title', 'content', 'created_at'],
+        //     include: [
+        //         {
+        //             model: Comment,
+        //             attributes: [
+        //                 'id',
+        //                 'comment_text',
+        //                 'post_id',
+        //                 'user_id',
+        //                 'created_at',
+        //             ],
+        //             include: { model: User, attributes: ['username'] },
+        //         },
+        //         { model: User, attributes: ['username'] },
+        //     ],
+        // });
         // Serialize data so the template can read it and reverse order so newest posts show near top
-        const posts = postData.map((post) => post.get({ plain: true }));
+        // const posts = postData.map((post) => post.get({ plain: true }));
         // Pass serialized data and session flag into template
-        res.render('dashboard', {
-            posts,
+        res.render('all-posts-admin', {
+            layout: 'dashboard',
+            // posts,
             logged_in: true,
         });
     } catch (err) {

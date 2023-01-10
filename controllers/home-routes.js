@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
         // Serialize data so the template can read it and reverse order so newest posts show near top
         const posts = blogData.map((post) => post.get({ plain: true })).reverse();
         // Pass serialized data and session flag into template
-        res.render('dashboard', {
+        res.render('all-posts', {
             posts,
             logged_in: req.session.logged_in,
         });
@@ -82,8 +82,16 @@ router.get('/login', (req, res) => {
         res.redirect('/profile');
         return;
     }
-
     res.render('login');
+});
+
+router.get('/signup', (req, res) => {
+    // If the user is already logged in, redirect the request to another route
+    if (req.session.logged_in) {
+        res.redirect('/profile');
+        return;
+    }
+    res.render('signup');
 });
 
 module.exports = router;
