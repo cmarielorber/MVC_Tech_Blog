@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Comment, Post, User } = require('../models');
 const withAuth = require('../utils/auth');
 
-//render homepage.handlebars template
+//render dashboard.handlebars template
 router.get('/', async (req, res) => {
     try {
         const blogData = await Post.findAll({
@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
         // Serialize data so the template can read it and reverse order so newest posts show near top
         const posts = blogData.map((post) => post.get({ plain: true })).reverse();
         // Pass serialized data and session flag into template
-        res.render('homepage', {
+        res.render('dashboard', {
             posts,
             logged_in: req.session.logged_in,
         });
