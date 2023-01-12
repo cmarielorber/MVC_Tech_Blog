@@ -7,7 +7,7 @@ const editFormHandler = async (event) => {
     const postID = document.getElementById('post-id').value.trim();
 
     if (bodyPost) {
-        const response = await fetch('/api/post/${postID}', {
+        const response = await fetch(`/api/post/${postID}`, {
             method: 'put',
             body: JSON.stringify({
                 title: titlePost.value,
@@ -23,6 +23,22 @@ const editFormHandler = async (event) => {
         }
     }
 };
+// const handleSubmit = (btn, postId) => {
+//     btn.addEventListener('click', () => {
+//       const newTitle =
+//         btn.parentNode.parentNode.childNodes[1].childNodes[1].value;
+//       const newBody = btn.parentNode.parentNode.childNodes[3].value;
+  
+//       if (newTitle.length <= 4 || newBody.length <= 4) {
+//         document.getElementById('edit-post-status').style.display = 'flex';
+//         setTimeout(() => {
+//           document.getElementById('edit-post-status').style.display = 'none';
+//         }, 3000);
+//       } else {
+//         editPost(newTitle, newBody, postId);
+//       }
+//     });
+//   };
 
 document
     .querySelector('#edit-post-form')
