@@ -6,12 +6,12 @@ const editFormHandler = async (event) => {
     const bodyPost = document.getElementById('post-body').value.trim();
     const postID = document.getElementById('post-id').value.trim();
 
-    if (postID) {
-        const response = await fetch('/api/post', {
+    if (bodyPost) {
+        const response = await fetch('/api/post/${postID}', {
             method: 'put',
             body: JSON.stringify({
                 title: titlePost.value,
-                body: bodyPost.value
+                body: bodyPost.value,
             }),
             headers: {'Content-Type': 'application/json'}
         });
