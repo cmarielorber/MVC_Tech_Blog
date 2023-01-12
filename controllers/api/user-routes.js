@@ -3,7 +3,7 @@ const { User } = require('../../models');
 
 router.post('/', async (req, res) => {
     try {
-        console.log('*****************************', req.body)
+        // console.log('*****************************', req.body)
         const userData = await User.create(req.body);
 
         req.session.save(() => {
@@ -19,12 +19,12 @@ router.post('/', async (req, res) => {
 
 router.post('/login', async (req, res) => {
     try {
-        const userData = await User.findOne({ where: { email: req.body.email } });
+        const userData = await User.findOne({ where: { username: req.body.username } });
 // console.log('*****************************', userData)
         if (!userData) {
             res
                 .status(400)
-                .json({ message: 'Incorrect email or password, please try again!' });
+                .json({ message: 'Whoops!' });
             return;
         }
 
@@ -33,7 +33,7 @@ router.post('/login', async (req, res) => {
         if (!validPassword) {
             res
                 .status(400)
-                .json({ message: 'Incorrect email or password, please try again!' });
+                .json({ message: 'Whoops!' });
             return;
         }
 
