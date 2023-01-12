@@ -28,6 +28,7 @@ The Tech Blog is a full-stack CMS-style blog site where it's user can interact w
 
 ## Screenshot
 ![mvc-tech-blog-lorber herokuapp com_login](https://user-images.githubusercontent.com/109984761/212177854-ba093041-78cf-4ebf-b985-8252f2402531.png)
+![mvc-tech-blog-lorber herokuapp com_dashboard](https://user-images.githubusercontent.com/109984761/212178106-3e77bf04-6bb3-4f09-9dce-f96ff7988046.png)
 
 ## Installation
 
