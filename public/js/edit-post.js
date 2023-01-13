@@ -8,7 +8,7 @@ const editFormHandler = async (event) => {
 
     if (bodyPost) {
         const response = await fetch(`/api/post/${postID}`, {
-            method: 'put',
+            method: 'PUT',
             body: JSON.stringify({
                 title: titlePost.value,
                 body: bodyPost.value,

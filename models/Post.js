@@ -18,14 +18,12 @@ Post.init(
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [8],
       },
     },
     description: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [8],
       },
     },
     user_id: {
