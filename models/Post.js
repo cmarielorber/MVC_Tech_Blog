@@ -17,14 +17,10 @@ Post.init(
     title: {
       type: DataTypes.STRING,
       allowNull: false,
-      validate: {
-      },
     },
     description: {
       type: DataTypes.STRING,
       allowNull: false,
-      validate: {
-      },
     },
     user_id: {
       type: DataTypes.STRING,
