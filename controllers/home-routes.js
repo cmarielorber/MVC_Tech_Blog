@@ -34,7 +34,8 @@ router.get("/post/:id", async (req, res) => {
         },
         {
           model: Comment,
-        },
+
+        }
       ],
     });
     console.log;
@@ -57,7 +58,7 @@ router.get("/profile", withAuth, async (req, res) => {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ["password"] },
-      include: [{ model: Project }],
+      include: [{ model: User }],
     });
 
     const user = userData.get({ plain: true });
@@ -87,7 +88,7 @@ router.get("/signup", (req, res) => {
     res.redirect("/profile");
     return;
   }
-  res.render("signup");
+  res.render("signUp");
 });
 
 module.exports = router;

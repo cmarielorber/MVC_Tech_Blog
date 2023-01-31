@@ -1,25 +1,27 @@
 const commentFormHandler = async (event) => {
-    // Stop the browser from submitting the form so we can do so with JavaScript
-    event.preventDefault();
+  // Stop the browser from submitting the form so we can do so with JavaScript
+  event.preventDefault();
 
-    // Gather the data from the form elements on the page
-    const postID = document.querySelector('#input[name="post-id"]').value.trim();
-    const body = document.querySelector('#textarea[name="comment-body').value.trim();
+  // Gather the data from the form elements on the page
+  const postID = document.querySelector('#input[name="post-id"]').value.trim();
+  const body = document
+    .querySelector('#textarea[name="comment-body')
+    .value.trim();
 
-    if (body) {
-        const response = await fetch('/api/comment', {
-            method: 'POST',
-            body: JSON.stringify({ postID, body }),
-            headers: { 'Content-Type': 'application/json' },
-        });
-        if (response.ok) {
-            document.location.reload();
-        } else {
-            alert('Failed to log in');
-        }
+  if (body) {
+    const response = await fetch("/api/comment", {
+      method: "POST",
+      body: JSON.stringify({ postID, body }),
+      headers: { "Content-Type": "application/json" },
+    });
+    if (response.ok) {
+      document.location.reload();
+    } else {
+      alert("Failed to log in");
     }
+  }
 };
 
 document
-    .querySelector('#new-comment-form')
-    .addEventListener('submit', commentFormHandler);
+  .querySelector("#new-comment-form")
+  .addEventListener("submit", commentFormHandler);

@@ -1,5 +1,5 @@
-const { Model, DataTypes } = require("sequelize");
-const sequelize = require("../config/connection");
+const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/connection');
 
 //create Comment Model
 class Comment extends Model {}
@@ -15,19 +15,20 @@ Comment.init(
     comment_text: {
       type: DataTypes.STRING,
       allowNull: false,
+      
     },
     user_id: {
-      type: DataTypes.STRING,
-      references: {
-        model: "user",
-        key: "id",
+        type: DataTypes.STRING,
+        references: {
+          model: 'user',
+          key: 'id',
+        },
       },
-    },
     post_id: {
       type: DataTypes.STRING,
       references: {
-        model: "post",
-        key: "id",
+        model: 'post',
+        key: 'id',
       },
     },
   },
@@ -35,7 +36,7 @@ Comment.init(
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modelName: "comment",
+    modelName: 'comment',
   }
 );
 
