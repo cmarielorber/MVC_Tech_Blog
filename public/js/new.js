@@ -30,6 +30,6 @@ document
   .querySelector("#new-post-form")
   .addEventListener("submit", newFormHandler);
 
-document
-  .querySelector("#create-new-post")
-  .addEventListener("click", createPostHandler);
+// document
+//   .querySelector("#create-new-post")
+//   .addEventListener("click", createPostHandler);
